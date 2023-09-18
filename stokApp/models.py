@@ -1,15 +1,40 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.utils.safestring import mark_safe # bizim içine verdiğimiz stringi güvenli olarak işaretleme
+from django.contrib.auth.models import User, AbstractUser
+
+ 
+ 
+# from django.utils.safestring import mark_safe # bizim içine verdiğimiz stringi güvenli olarak işaretleme
 
 # Create your models here.
+
+
+# class CustomUser(AbstractUser):
+#     image = models.ImageField(null=True,blank=True, default='user.png', upload_to="image/")
+    
+#     groups = models.ManyToManyField(
+#         "auth.Group",
+#         verbose_name="groups",
+#         blank=True,
+#         help_text="The groups this user belongs to.",
+#         related_name="custom_user_groups",
+#         related_query_name="custom_user_group",
+#     )
+#     user_permissions = models.ManyToManyField(
+#         "auth.Permission",
+#         verbose_name="user permissions",
+#         blank=True,
+#         help_text="Specific permissions for this user.",
+#         related_name="custom_user_permissions",
+#         related_query_name="custom_user_permission",
+#     )
+
 class Firm (models.Model): # FİRMA BİLGİSİ
     name = models.CharField(max_length=50)
     phone = models.CharField(max_length=20)
     address = models.CharField(max_length=150)
     image =  models.ImageField(null=True,blank=True, default='user.png', upload_to="image/")
     
-    
+        
     def __str__(self):
         return f"{self.name} -{self.phone}- {self.address} "
     # class Meta:
@@ -19,7 +44,7 @@ class Firm (models.Model): # FİRMA BİLGİSİ
 class Category(models.Model):
 
     name = models.CharField(max_length = 35)
-
+    image =  models.ImageField(null=True,blank=True, default='user.png', upload_to="image/")
     def __str__(self):
         return self.name
     
@@ -34,11 +59,7 @@ class Brand(models.Model): # MARKA BİLGİSİ
         return self.name
     # class Meta:
     #     verbose_name_plural = ("MARKA")
-    @property
-    def detay_resim_getir(self):
-        if self.image:
-            return mark_safe(f"<img src={self.image.url} width=400 height=400></img>")
-        return mark_safe(f"<h3>{self.name} adlı yazı resime sahip değil</h3>")
+    
     
 class Product(models.Model): #  ÜRÜN BİLGİSİ
     name = models.CharField(max_length=50)
@@ -61,6 +82,7 @@ class Sales(models.Model): #SATIŞ BİLGİSİ
     quantitiy = models.SmallIntegerField() # MİKTAR DEMEKTİR
     price = models.DecimalField(max_digits=10, decimal_places= 3)
     price_total = models.DecimalField(max_digits=10, decimal_places=3 ,blank=True)
+    image =  models.ImageField(null=True,blank=True, default='user.png', upload_to="image/")
     
     def __str__(self):
         return f"{self.product}-{self.quantitiy}-{self.price_total}"
@@ -77,11 +99,13 @@ class Purchases (models.Model):
     quantitiy = models.SmallIntegerField() # MİKTAR DEMEKTİR
     price = models.DecimalField(max_digits=5 , decimal_places=2) #FİYAT DEMEKTİR
     price_total = models.DecimalField(max_digits=10 , decimal_places=3,blank=True) #TOPLAM FİYAT
+    image =  models.ImageField(null=True,blank=True, default='user.png', upload_to="image/")
     
     def __str__(self):
-        return f"{self.quantitiy}-{self.product}"
+        return f"{self.quantitiy}-{self.product}-{self.image}"
     
     # class Meta:
     #     verbose_name_plural = ("ALIŞVERİŞ")
-    
+
+
   

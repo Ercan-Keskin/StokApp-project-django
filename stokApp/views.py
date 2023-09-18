@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework.filters import SearchFilter , OrderingFilter
-from django_filters.rest_framework import DjangoFilterBackend  # altını kızartıyor ama çalışmaya devam ediyor ..
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 from .models import Category ,Brand ,Firm ,Product , Purchases , Sales
@@ -201,8 +201,7 @@ class SalesView(ModelViewSet):
         
 
         if getattr(instance, '_prefetched_objects_cache', None):
-            # If 'prefetch_related' has been applied to a queryset, we need to
-            # forcibly invalidate the prefetch cache on the instance.
+            
             instance._prefetched_objects_cache = {}
 
         return Response(serializer.data)

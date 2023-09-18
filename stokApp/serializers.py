@@ -69,7 +69,7 @@ class PurchasesSerializer(serializers.ModelSerializer):
     category = serializers.SerializerMethodField()
     class Meta:
         model = Purchases
-        fields = ['id','user','user_id','firm','firm_id','brand','brand_id','product','product_id','quantitiy', 'price', 'price_total','category']    
+        fields = ['id','user','user_id','firm','firm_id','brand','brand_id','product','product_id','quantitiy', 'price', 'price_total','category','image',]    
         
     def create(self,validate_date):
         validate_date['user_id']= self.context['request'].user.id  ### YENİ BİR ALIŞ YAPILDIĞINDA USER ID Yİ OTOMATİK ALMAK İÇİN YAZMAK ZORUNDAYIZ..
@@ -94,7 +94,7 @@ class SalesSerializer(serializers.ModelSerializer):
     
     class Meta : 
         model = Sales
-        fields = ['id','user','user_id','brand','brand_id','product','product_id','quantitiy','price','price_total']
+        fields = ['id','user','user_id','brand','brand_id','product','product_id','quantitiy','price','price_total', 'image',]
     
     def create(self,validate_date):
         validate_date['user_id']= self.context['request'].user.id    ### YENİ BİR SATIŞ YAPILDIĞINDA USER ID Yİ OTOMATİK ALMAK İÇİN YAZMAK ZORUNDAYIZ..
