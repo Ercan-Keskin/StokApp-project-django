@@ -1,7 +1,7 @@
 # StokApp-project-django
 
 
-<h3>
+<h2>
 Bu Proje bir E-ticaret sitesinin Stock Kontrolünü yönetmek için ekip arkadaşım İbrahim Enes DEDEOĞLU ile Beraber tasarlanmıştır.
 Projemizdemizde ;
 
@@ -17,9 +17,16 @@ Projemizdemizde ;
 -Aynı zamanda projesi Pagination ve Faker yapısı kullanıldı.
 -Bütün projede Search ve Filter özellikleri eklendi.
 -Ürünlerin fiyatı miktar ile çarpılıp genel toplam olarak ifade ediliyor. Bunun için signals yapısı kullanıldı...
-</h3>
 
-<h3>
+Projenin canlıya alınmış hali: <a href="https://stockappproject.pythonanywhere.com/" target="_blank">Giriş Paneli</a>
+----------------------
+kullanıcı adı: admin1
+şife:12345
+----------------------                                
+
+</h2>
+
+<h2>
 # StokApp-project-django
 This Project was designed together with my teammate, İbrahim Enes DEDEOĞLU, to manage the Stock Control of an E-commerce site.
 In our project;
@@ -36,7 +43,14 @@ In our project;
 -At the same time, the project Pagination and Faker structure were used. 
 -Search and Filter properties have been added to the whole project.
 -The price of the products is multiplied by the quantity and expressed as a grand total. For this, the signals structure was used...
-</h3>
+
+To access the Live of the Project:  <a href="https://stockappproject.pythonanywhere.com/" target="_blank">User Panel</a>
+----------------------
+super user: admin1
+password:12345
+----------------------                                
+
+</h2>
 
 <h2>ERD Yapısı</h2>
 <img src="https://github.com/dedeogluie/StokAppProject/blob/main/ERP.jpg" style ="max-width: 50%">
